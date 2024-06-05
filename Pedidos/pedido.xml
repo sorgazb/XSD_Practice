@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pedido xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+        xs:noNamespaceSchemaLocation="pedido.xsd" >
+    <factura pago="Transferencia bancaria">
+        <nif>A12345678</nif>
+        <cliente >Miguel Marco Gol</cliente>
+        <fecha>2020-01-31</fecha>
+        <dir_entrega cp="10004">
+            <direccion>C/ Encina</direccion>
+            <localidad>Cáceres</localidad>
+            <provincia>Cáceres</provincia>
+        </dir_entrega>
+    </factura> 
+    <articulos>
+        <articulo codigo="aaa-111">
+            <unidades>8</unidades>
+            <precio>23.94</precio>
+        </articulo>
+        <articulo codigo="BBB-222">
+            <unidades>15</unidades>
+            <precio>29.04</precio>
+        </articulo>
+    </articulos>
+</pedido>

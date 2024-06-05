@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<empresa xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="plantilla.xsd">
+  <empleados>
+    <empleado codigo="EMP1">
+      <nombre>Sergio</nombre>
+      <apellido1>Orgaz</apellido1>
+      <apellido2>Bravo</apellido2>
+      <altura>1.90</altura>
+      <sexo>Hombre</sexo>
+      <NIF>28979443H</NIF>
+    </empleado>
+    <empleado codigo="EMP2">
+      <nombre>Noelia</nombre>
+      <apellido1>Gutierrez</apellido1>
+      <apellido2>Ramos</apellido2>
+      <altura>1.65</altura>
+      <sexo>Mujer</sexo>
+      <NIE>A1234567B</NIE>
+    </empleado>
+    <empleado codigo="EMP3">
+      <nombre>Laura</nombre>
+      <apellido1>Gutierrez</apellido1>
+      <apellido2>Ramos</apellido2>
+      <altura>1.95</altura>
+      <sexo>Otro</sexo>
+      <CIF>A12345679</CIF>
+    </empleado>
+  </empleados>
+</empresa>

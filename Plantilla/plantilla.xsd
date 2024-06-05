@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    
+    <xs:element name="empresa">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="empleados">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="empleado" type="datos_empleado" minOccurs="1" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:complexType name="datos_empleado">
+        <xs:sequence>
+            <xs:element name="nombre" type="rest_string_15"/>
+            <xs:element name="apellido1" type="rest_string_15"/>
+            <xs:element name="apellido2" type="rest_string_15"/>
+            <xs:element name="altura" type="rest_altura"/>
+            <xs:element name="sexo" type="rest_sexo"/>
+            <xs:choice>
+                <xs:element name="NIF" type="rest_NIF"/>
+                <xs:element name="NIE" type="rest_NIE"/>
+                <xs:element name="CIF" type="rest_CIF"/>
+            </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="codigo" type="xs:string" use="required"/>
+    </xs:complexType>
+    
+    <xs:simpleType name="rest_string_15">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="3"/>
+            <xs:maxLength value="15"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="rest_altura">
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="3"/>
+            <xs:fractionDigits value="2"/>
+            <xs:minInclusive value="1.50"/>
+            <xs:maxInclusive value="2.00"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="rest_sexo">
+        
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Hombre"/>
+            <xs:enumeration value="Mujer"/>
+            <xs:enumeration value="Otro"/>
+        </xs:restriction>
+    </xs:simpleType> 
+    <xs:simpleType name="rest_NIF">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{8}[a-zA-Z]"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="rest_NIE">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-Z][0-9]{7}[a-Z]"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="rest_CIF">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-Z][*][0-9]{8}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+</xs:schema>

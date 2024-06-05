@@ -1,0 +1,59 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="pedido">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="factura" type="datos_factura"/>
+                <xs:element name="articulos">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="articulo" type="datos_articulo" minOccurs="1" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="datos_factura">
+        <xs:sequence>
+            <xs:element name="nif">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[A-Z a-z][0-9]{8}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="cliente" type="xs:string"/>
+            <xs:element name="fecha" type="xs:date"/>
+            <xs:element name="dir_entrega" type="datos_entrega"/>
+        </xs:sequence>
+        <xs:attribute name="pago" type="xs:string"/>
+    </xs:complexType>
+    <xs:complexType name="datos_entrega">
+        <xs:sequence>
+            <xs:element name="direccion" type="xs:string"/>
+            <xs:element name="localidad" type="xs:string"/>
+            <xs:element name="provincia" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="cp" type="xs:string"/>
+    </xs:complexType>
+    <xs:complexType name="datos_articulo">
+        <xs:sequence>
+            <xs:element name="unidades" type="xs:decimal"/>
+            <xs:element name="precio">
+                <xs:simpleType>
+                    <xs:restriction base="xs:decimal">
+                        <xs:totalDigits value="6"/>
+                        <xs:fractionDigits value="2"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="codigo">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:pattern value="[A-Z a-z]{3}-[0-9]{3}"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>

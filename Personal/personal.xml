@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<personal xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="personal.xsd">
+    
+    <datos-generales fecha="2023-10-20" multinacional="false" moneda="Euro">
+        <nombre-empresa>Software Extrem</nombre-empresa>
+        <numero-trabajadores>15</numero-trabajadores>
+        <sector>
+            <tecnologia/>
+        </sector>
+    </datos-generales>
+    
+    <datos-departamentos>
+        <departamento codigo="ADMIN" nombre-departamento="Administración">
+            <jefe>
+                <nombreapellidos> Antonio Pérez</nombreapellidos>
+                <salario>4700.58</salario>
+                <clave usuario="anpere">3aaazkK6</clave>
+            </jefe>
+            <empleado>
+                <nombreapellidos>Juan García</nombreapellidos>
+                <baja/>
+                <salario>2200.58</salario>
+            </empleado>
+            <empleado>
+                <nombreapellidos>María Serradilla</nombreapellidos>
+                <salario>2315.62</salario>
+            </empleado>
+        </departamento>
+        
+        <departamento codigo="INFOR" nombre-departamento="Informática">
+            <jefe>
+                <nombreapellidos> Isabel Gómez</nombreapellidos>
+                <baja/>
+                <salario>5200.60</salario>
+                <clave usuario="isabelgo">8abbzbHj</clave>
+            </jefe>
+            <empleado>
+                <nombreapellidos>Oscar Lee</nombreapellidos>
+                <salario>3109.25</salario>
+            </empleado>
+        </departamento>
+        
+        <departamento codigo="MARKE" nombre-departamento="Marketing">
+            <jefe>
+                <nombreapellidos>Luis Antón</nombreapellidos>
+                <salario>4255.12</salario>
+                <clave usuario="luisant">6caiiiYt</clave>
+            </jefe>
+        </departamento>
+        
+    </datos-departamentos>
+    
+</personal>

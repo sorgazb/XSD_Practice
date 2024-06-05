@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="personal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="datos-generales" type="tipoDatosGenerales"/>
+        <xs:element name="datos-departamentos">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="departamento" type="tipoDatosDepartamento" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="tipoDatosGenerales">
+    <xs:sequence>
+      <xs:element name="nombre-empresa" type="tipoTexto"/>
+      <xs:element name="numero-trabajadores" type="tipoEntero"/>
+      <xs:element name="sector">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="educacion"/>
+            <xs:enumeration value="finanzas"/>
+            <xs:enumeration value="tecnologia"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="fecha" type="xs:date" use="required"/>
+    <xs:attribute name="multinacional" type="xs:boolean" use="required"/>
+    <xs:attribute name="moneda" type="tipoMoneda" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="tipoDatosDepartamento">
+    <xs:sequence>
+      <xs:element name="jefe" type="tipoDatosJefe" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="empleado" type="tipoEmpleado" minOccurs="0" maxOccurs="3"/>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:sequence>
+      <xs:attribute name="codigo" type="xs:string" use="required"/>
+      <xs:attribute name="nombre-departamento" type="xs:tipoDepartamento" use="required"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="tipoTexto">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="41"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tipoEntero">
+    <xs:restriction base="xs:integer"/>
+  </xs:simpleType>
+  <xs:simpleType name="tipoMoneda">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Euro"/>
+      <xs:enumeration value="Libra"/>
+      <xs:enumeration value="Dolar"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tipoDepartamento">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Administracion"/>
+      <xs:enumeration value="Informacion"/>
+      <xs:enumeration value="Marketing"/>
+      <xs:enumeration value="Recursos Humanos"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="tipoDatosJefe">
+    <xs:sequence>
+      <xs:element name="nombreapellidos" type="tipoTexto"/>
+      <xs:element name="clave" type="tipoClave">
+        <xs:simpleType>
+          <xs:attribute name="usuario" fixed="invitado">
+            <xs:restriction base="xs:string">
+              <xs:minLength value="6"/>
+              <xs:maxLength value="8"/>
+            </xs:restriction>
+          </xs:attribute>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="salario">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="6"/>
+            <xs:fractionDigits value="2"/>
+            <xs:minInclusive value="1000"/>
+            <xs:maxInclusive value="9999"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="baja" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="tipoEmpleado">
+    <xs:sequence>
+      <xs:element name="nombreapellidos" type="tipoTexto"/>
+      <xs:element name="baja" type="xs:boolean"/>
+      <xs:element name="salario">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="6"/>
+            <xs:fractionDigits value="2"/>
+            <xs:minInclusive value="1000"/>
+            <xs:maxInclusive value="9999"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:simpleType>
+  <xs:simpleType name="tipoClave">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\d[a-z]{4}[KYH]*{0,3}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="tipoUsuario">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\d[a-z]{4}[KYH]*{0,3}"/>
+    </xs:restriction>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<aeropuerto xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="aeropuerto.xsd" >
+  <nombre>Madrid-Barajas</nombre>
+  <vuelos>
+    <vuelo codigo="V22" estado="R">
+      <diario/>
+      <origen>Madrid</origen>
+      <destino>Sevilla</destino>
+      <horasalida>09:30:00</horasalida>
+      <horallegada>11:00:00</horallegada>
+    </vuelo>
+    <vuelo codigo="V23" estado="C">
+      <origen>Madrid</origen>
+      <destino>Tenerife</destino>
+      <horasalida>10:15:00</horasalida>
+      <horallegada>12:15:00</horallegada>
+    </vuelo>
+  </vuelos>
+  <fecha>2024-02-20</fecha>
+</aeropuerto>

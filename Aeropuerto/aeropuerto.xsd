@@ -1,0 +1,37 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="aeropuerto">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="nombre" type="xs:string"/>
+                <xs:element name="vuelos">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="vuelo" minOccurs="1" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="diario" minOccurs="0" maxOccurs="unbounded" type="xs:string"/>
+                                        <xs:element name="origen" minOccurs="1" maxOccurs="unbounded" type="xs:string"/>
+                                        <xs:element name="destino" minOccurs="1" maxOccurs="unbounded" type="xs:string"/>
+                                        <xs:element name="horasalida" minOccurs="1" maxOccurs="unbounded" type="xs:time"/>
+                                        <xs:element name="horallegada" minOccurs="1" maxOccurs="unbounded" type="xs:time"/>
+                                    </xs:sequence>
+                                    <xs:attribute name="codigo" type="xs:ID" use="required"/>
+                                    <xs:attribute name="estado" default="E">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <xs:enumeration value="C"/>
+                                                <xs:enumeration value="E"/>
+                                                <xs:enumeration value="R"/>
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="fecha" type="xs:date"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
